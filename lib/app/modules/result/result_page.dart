@@ -1,3 +1,4 @@
+import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
@@ -13,6 +14,8 @@ class ResultPage extends StatefulWidget {
 class _ResultPageState extends State<ResultPage> {
   @override
   Widget build(BuildContext context) {
+    var msg = widget.data.code ?? "No Result";
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('扫描结果'),
@@ -24,14 +27,14 @@ class _ResultPageState extends State<ResultPage> {
           children: [
             Center(
               child: Text(
-                widget.data.code ?? 'No Result',
+                msg,
                 style: const TextStyle(fontSize: 25.0),
               ),
             ),
             Positioned(
               left: 20.0,
               right: 20.0,
-              bottom: 30.0,
+              bottom: 40.0,
               child: Container(
                 height: 60.0,
                 decoration: BoxDecoration(
@@ -42,7 +45,7 @@ class _ResultPageState extends State<ResultPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () => _copyToClipboard(msg),
                       child: const Icon(
                         Icons.copy,
                         color: Colors.blue,
@@ -73,5 +76,15 @@ class _ResultPageState extends State<ResultPage> {
         ),
       ),
     );
+  }
+
+  _copyToClipboard(String msg) {
+    FlutterClipboard.copy(msg).then((_) {
+      const snackBar = SnackBar(
+        content: Text('拷贝成功'),
+      );
+
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    });
   }
 }
