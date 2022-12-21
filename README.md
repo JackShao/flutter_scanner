@@ -1,16 +1,3 @@
 # flutter_scanner
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+考虑到现在市场里面很多二维码扫码工具，大多含有广告，而使用微信扫码会被拦截，所以写了这个二维码扫描工具用来自娱自乐。
