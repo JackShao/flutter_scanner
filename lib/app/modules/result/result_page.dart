@@ -1,6 +1,7 @@
 import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ResultPage extends StatefulWidget {
@@ -72,7 +73,7 @@ class _ResultPageState extends State<ResultPage> {
           ),
         ),
         GestureDetector(
-          onTap: () {},
+          onTap: () => Share.share(msg),
           child: const Icon(
             Icons.send,
             color: Colors.blue,
